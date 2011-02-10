@@ -1,3 +1,4 @@
+require 'node_prop/graph'
 require 'node_prop/version'
 
 # The NodeProp Module implements NodeProp, a unified 
