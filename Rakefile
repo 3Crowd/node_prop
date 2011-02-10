@@ -2,17 +2,8 @@ require 'rspec/core/rake_task'
 require 'metric_fu'
 
 MetricFu::Configuration.run do |config|
-config.rcov = { :environment => 'test',
-                :test_files => ['spec/**/*_spec.rb'],
-                :rcov_opts => ["--sort coverage", 
-                               "--no-html", 
-                               "--text-coverage",
-                               "--no-color",
-                               "--profile",
-                               "-I lib:spec",
-                               "--exclude /gems/,/Library/,/usr/,spec"],
-                :external => nil
-                }
+  config.metrics = [:churn, :flay, :flog, :reek, :roodi, :hotspots]
+  config.graphs = [:flog, :flay, :stats]
 end
 
 RSpec::Core::RakeTask.new :spec
@@ -44,6 +35,23 @@ namespace :doc do
                ]
   end
 
+end
+
+namespace :cover_me do
+
+  task :report do
+    require 'cover_me'
+    CoverMe.complete!
+  end
+
+end
+
+task :spec do
+  Rake::Task['cover_me:report'].invoke
+end
+
+task :specdoc do
+  Rake::Task['cover_me:report'].invoke
 end
 
 task :default => [ :spec, 'doc:public', 'doc:private', 'metrics:all' ]

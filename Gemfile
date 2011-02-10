@@ -11,4 +11,5 @@ group :development do
   gem 'bluecloth', '~> 2.0.9'
   gem 'yard', '~> 0.6.4'
   gem 'metric_fu', '~> 2.0.1'
+  gem 'cover_me', '~> 1.0.0.rc5'
 end

@@ -1,3 +1,19 @@
+require 'cover_me'
+
+CoverMe.config do |c|
+  # where is your project's root:
+  c.project.root = File.absolute_path(File.join(File.dirname(__FILE__),'..'))
+
+  c.formatter = CoverMe::HtmlFormatter
+
+  c.html_formatter.output_path = File.join(CoverMe.config.project.root, 'coverage')
+  
+  # what files are you interested in coverage for:
+  c.file_pattern = /#{CoverMe.config.project.root}\/lib\/.+\.rb/ix  
+
+  c.at_exit = Proc.new{}
+end
+
 require 'rspec'
 require 'rspec/autorun'
 require 'node_prop'
