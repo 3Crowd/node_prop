@@ -46,4 +46,4 @@ namespace :doc do
 
 end
 
-task :default => [ :spec, 'doc:public', 'doc:private' ]
+task :default => [ :spec, 'doc:public', 'doc:private', 'metrics:all' ]
