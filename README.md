@@ -16,27 +16,27 @@ please use the github fork/pull request featureset for patches.
 Examples of using the proposed Graph Object API below:
 
 #### Setup
-  graph = NodeProp::Graph.new
-  property = NodeProp::Property.new(:name, String, :default => 'DefaultNodeName')
-  property_set = NodeProp::PropertySet.new(property)
-  node = NodeProp::Node.new(:property_set => property_set)
+    graph = NodeProp::Graph.new
+    property = NodeProp::Property.new(:name, String, :default => 'DefaultNodeName')
+    property_set = NodeProp::PropertySet.new(property)
+    node = NodeProp::Node.new(:property_set => property_set)
 
 #### Adding Nodes to the Graph
-  graph.add_node(node)
+    graph.add_node(node)
 
 #### Removing a Node from a Graph
-  graph.remove_node(node)
+    graph.remove_node(node)
 
 #### Adding an Index to a Graph
-  index = NodeProp::Index.new( :type => :node, :key => :name )
-  graph.add_index(index)
+    index = NodeProp::Index.new( :type => :node, :key => :name )
+    graph.add_index(index)
 
 #### Mutating a PropertySet
-  property_set.add_property :quantity, Integer, :default => 0
-  property_set.remove_property :name
+    property_set.add_property :quantity, Integer, :default => 0
+    property_set.remove_property :name
 
 #### Mutating a Property Entry
-  No interface has yet been decided on for mutating property entries.
+    No interface has yet been decided on for mutating property entries.
 
 ### Object Schema/Primitives
 The NodeProp schema is relatively constrained in order to
