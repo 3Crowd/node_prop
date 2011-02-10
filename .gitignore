@@ -1,0 +1,8 @@
+.yardoc
+.bundle
+doc
+private_api_doc
+tmp
+[~]*
+*[~]
+[#]*
