@@ -1,25 +1,25 @@
-# NodePropDB (Node Property Database)
-NodePropDB, also known as npdb for short, is a unified 
+# NodeProp (Node Property)
+NodeProp, also known as np for short, is a unified 
 application programming interface for arbitrary graph 
 constructions. 
 
 ## In Development and Contributing
-NodePropDB is currently under development and as such most 
+NodeProp is currently under development and as such most 
 features described here are unimplemented. Please see the 
 ROADMAP.md file for implementation progress. Contributions 
 under the license described in LICENSE.md are most defintely welcome, 
 please use the github fork/pull request featureset for patches.
 
-## Graph Object API and NodePropDB Object Schema
+## Graph Object API and NodeProp Object Schema
 
 ### Graph Object API
 Examples of using the proposed Graph Object API below:
 
 #### Setup
-> graph = NodePropDB::Graph.new
-> property = NodePropDB::Property.new(:name, String, :default => 'DefaultNodeName')
-> property_set = NodePropDB::PropertySet.new(property)
-> node = NodePropDB::Node.new(:property_set => property_set)
+> graph = NodeProp::Graph.new
+> property = NodeProp::Property.new(:name, String, :default => 'DefaultNodeName')
+> property_set = NodeProp::PropertySet.new(property)
+> node = NodeProp::Node.new(:property_set => property_set)
 
 #### Adding Nodes to the Graph
 > graph.add_node(node)
@@ -28,7 +28,7 @@ Examples of using the proposed Graph Object API below:
 > graph.remove_node(node)
 
 #### Adding an Index to a Graph
-> index = NodePropDB::Index.new( :type => :node, :key => :name )
+> index = NodeProp::Index.new( :type => :node, :key => :name )
 > graph.add_index(index)
 
 #### Mutating a PropertySet
@@ -39,7 +39,7 @@ Examples of using the proposed Graph Object API below:
 No interface has yet been decided on for mutating property entries.
 
 ### Object Schema/Primitives
-The NodePropDB schema is relatively constrained in order to
+The NodeProp schema is relatively constrained in order to
 present the most flexible interface possible for graph
 containment. With this concept in mind, the primitives with which
 we will work are: Node, PropertySet, Index, Graph, Traveller,
@@ -82,7 +82,9 @@ Currently only for in-process in-memory graph structures, nodeprop
 does not provide any specific persistence mechanism. However, a 
 persistence mechanism may be implemented by hooking into the 
 provided Graph, Node, PropertySet, and Index modification 
-and data-loading callbacks. 
+and data-loading callbacks. See the project NodePropDB for
+the NodeProp primary implementation of persistence once the project
+has been started. 
 
 ## ACID Principles
 ACID principles ( Atomicity, Consistency, Isolation, and Durability ) 
