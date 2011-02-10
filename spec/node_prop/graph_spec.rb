@@ -17,7 +17,36 @@ describe NodeProp::Graph do
   describe 'class methods' do
   end
   
-  describe 'instance methods' do
+  describe 'instance' do
+    
+    before do
+      @klass_instance = NodeProp::Graph.new
+    end
+    
+    describe 'nodes attribute' do
+      
+      describe 'reader' do
+        
+        it 'exists' do
+          @klass_instance.should respond_to(:nodes)
+        end
+        
+        it 'returns an object which is a kind of array' do
+          @klass_instance.nodes.should be_a_kind_of(Array)
+        end
+        
+      end
+      
+    end
+    
+    describe 'method initialize' do
+      
+      it 'should initialize the nodes attribute to be empty' do
+        @klass_instance.nodes.should be_empty
+      end
+      
+    end
+    
   end
   
 end
