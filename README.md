@@ -60,7 +60,7 @@ The Index maintains a forward mapping from key-value pairs
 in a nodes PropertySet to the list of nodes containing equal
 key-values. For instance, given a set of nodes A and B with 
 PropertySets Ap and Bp both containing namespaced key-value 
-pairs of Ap{ns:test/key => 1}, Bp{ns:test/key => 1} than the
+pairs of Ap -> { :test/key => 1 }, Bp -> { :test/key => 1 } than the
 Index for ns:test/key would contain the values:
 { 1 => [A, B] }.
 
