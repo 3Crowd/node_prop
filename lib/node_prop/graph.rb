@@ -4,7 +4,7 @@ module NodeProp
   # the mutation of their property sets
   class Graph
     
-    # The node objects which belong to this graph
+    # A collection of nodes which belong to this graph
     attr_reader :nodes
     
     # Construct the Graph object
