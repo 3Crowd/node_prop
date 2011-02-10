@@ -1,4 +1,5 @@
 module NodeProp
+  
   # Release version, set on revision control release branches as a separate commit
   # after branching so that trunk patches can be easily backported.
   #

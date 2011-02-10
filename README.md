@@ -49,6 +49,14 @@ and QueryEngine.
 The Node primative represents an atom within the 
 graph, essentially a particular instance of a PropertySet. 
 
+#### The Property
+The Property is essentially a key-value pair with metadata. It is named, and
+is also namespaced. Property names must be unique within their namespace.
+
+#### The PropertyNamespace
+The PropertyNamespace is a collection of named key-value pairs. The PropertyNamespace
+enforces unique name constraints within the namespace.
+
 #### The PropertySet
 The PropertySet represents a collection of key-value pairs which 
 describe the particular properties ascribed to a node or set of 
