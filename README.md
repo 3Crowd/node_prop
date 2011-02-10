@@ -10,24 +10,52 @@ ROADMAP.md file for implementation progress. Contributions
 under the license described in LICENSE.md are most defintely welcome, 
 please use the github fork/pull request featureset for patches.
 
-## Graph Interaction and NodePropDB Schema
-The NodePropDB schema is relatively constrained in order to 
-present the most flexible interface possible for graph 
+## Graph Object API and NodePropDB Object Schema
+
+### Graph Object API
+Examples of using the proposed Graph Object API below:
+
+#### Setup
+> graph = NodePropDB::Graph.new
+> property = NodePropDB::Property.new(:name, String, :default => 'DefaultNodeName')
+> property_set = NodePropDB::PropertySet.new(property)
+> node = NodePropDB::Node.new(:property_set => property_set)
+
+#### Adding Nodes to the Graph
+> graph.add_node(node)
+
+#### Removing a Node from a Graph
+> graph.remove_node(node)
+
+#### Adding an Index to a Graph
+> index = NodePropDB::Index.new( :type => :node, :key => :name )
+> graph.add_index(index)
+
+#### Mutating a PropertySet
+> property_set.add_property :quantity, Integer, :default => 0
+> property_set.remove_property :name
+
+#### Mutating a Property Entry
+No interface has yet been decided on for mutating property entries.
+
+### Object Schema/Primitives
+The NodePropDB schema is relatively constrained in order to
+present the most flexible interface possible for graph
 containment. With this concept in mind, the primitives with which
-we will work are: Node, PropertySet, Index, Graph, Traveller, 
+we will work are: Node, PropertySet, Index, Graph, Traveller,
 and QueryEngine.
- 
-### The Node
+
+#### The Node
 The Node primative represents an atom within the 
 graph, essentially a particular instance of a PropertySet. 
 
-### The PropertySet
+#### The PropertySet
 The PropertySet represents a collection of key-value pairs which 
 describe the particular properties ascribed to a node or set of 
 nodes. PropertySets are equal if all of their key-value pairs 
 are equal.
 
-### The Index
+#### The Index
 The Index maintains a forward mapping from key-value pairs
 in a nodes PropertySet to the list of nodes containing equal
 key-values. For instance, given a set of nodes A and B with 
@@ -36,15 +64,15 @@ pairs of Ap{ns:test/key => 1}, Bp{ns:test/key => 1} than the
 Index for ns:test/key would contain the values:
 { 1 => [A, B] }.
 
-### The Graph
+#### The Graph
 The Graph coordinates the mutation of a named set of nodes and
 PropertySets.
 
-### The Traveller
+#### The Traveller
 The Traveller encapsulates the operations required for traversing
 the graph in the most efficient manor for the requirements given.
 
-### The QueryEngine
+#### The QueryEngine
 The QueryEngine provides an interface for specifying arbitrarily 
 complex queries for a given graph in a standardized format. The
 QueryEngine then creates a customized Traveller to execute the query.
