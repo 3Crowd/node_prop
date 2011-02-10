@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.version	= NodeProp::Version.to_standard_format
   s.authors	= ["Justin Lynn (justinlynn)", "3Crowd Technologies, Inc. (Sponsor)"]
   s.email	= ["ops@3crowd.com"]
-  s.homepage	= "http://github.com/3Crowd/nodeprop"
+  s.homepage	= "http://github.com/3Crowd/node_prop"
   s.summary	= "A unified and arbitrary graph manipulation interface"
   s.description = "A unified and arbitrary graph manipulation interface"
 
