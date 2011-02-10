@@ -7,10 +7,15 @@ module NodeProp
     # A collection of nodes which belong to this graph
     attr_reader :nodes
     
+    # A collection of indexes that are maintained for the nodes
+    # in this graph
+    attr_reader :indexes
+    
     # Construct the Graph object
     def initialize
       super
       @nodes = []
+      @indexes = []
     end
     
   end

@@ -39,10 +39,30 @@ describe NodeProp::Graph do
       
     end
     
+    describe 'indexes attribute' do
+      
+      describe 'reader' do
+        
+        it 'exists' do
+          @klass_instance.should respond_to(:indexes)
+        end
+        
+        it 'returns an object with is a kind of array' do
+          @klass_instance.indexes.should be_a_kind_of(Array)
+        end
+        
+      end
+      
+    end
+    
     describe 'method initialize' do
       
       it 'should initialize the nodes attribute to be empty' do
         @klass_instance.nodes.should be_empty
+      end
+      
+      it 'should initialize the indexes attribute to be empty' do
+        @klass_instance.indexes.should be_empty
       end
       
     end
