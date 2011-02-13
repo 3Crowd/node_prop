@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'node_prop/version'
+require 'node_prop/error'
+require 'node_prop/errors'
 
 require 'node_prop/property_namespace'
 require 'node_prop/property'
