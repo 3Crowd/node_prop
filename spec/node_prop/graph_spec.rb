@@ -103,12 +103,13 @@ describe NodeProp::Graph do
         
         context 'while the node to add is not a member of the graph' do
           
-          before do
+          it 'adds the node to the graph instance' do
             @klass_instance.add_node!(@node_to_add)
+            @klass_instance.should have_node(@node_to_add)
           end
           
-          it 'adds the node to the graph instance' do
-            @klass_instance.should have_node(@node_to_add)
+          it 'returns the graph instance' do
+            @klass_instance.add_node!(@node_to_add).should eql(@klass_instance)
           end
           
         end
@@ -123,10 +124,6 @@ describe NodeProp::Graph do
             lambda{ @klass_instance.add_node!(@node_to_add) }.should raise_error(NodeProp::Errors::DuplicateNodeError)
           end
           
-        end
-        
-        it 'returns the graph instance' do
-          @klass_instance.add_node!(@node_to_add).should eql(@klass_instance)
         end
         
       end
