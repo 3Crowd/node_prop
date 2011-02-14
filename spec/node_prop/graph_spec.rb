@@ -20,7 +20,7 @@ describe NodeProp::Graph do
       @klass_instance = NodeProp::Graph.new
     end
     
-    describe 'attributes: nodes' do
+    describe 'attribute: nodes' do
       
       describe 'reader' do
         
