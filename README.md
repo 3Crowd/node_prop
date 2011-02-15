@@ -10,6 +10,10 @@ ROADMAP.md file for implementation progress. Contributions
 under the license described in LICENSE.md are most defintely welcome, 
 please use the github fork/pull request featureset for patches.
 
+## Requirements and Runtime Dependencies
+* Ruby 1.9.2p136 or greater
+* ActiveSupport ~> v3.0.3
+
 ## Graph Object API and NodeProp Object Schema
 
 ### Graph Object API
